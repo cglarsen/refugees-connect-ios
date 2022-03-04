@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Auth View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AuthViewController" id="Y6W-OH-hqX" customClass="AuthViewController" customModule="RefugeConnect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yg2-gF-yhZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provide your phone number to continue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Oo-jd-zdf">
+                                <rect key="frame" x="56.5" y="100" width="301" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rEX-JU-VpU">
+                                <rect key="frame" x="107" y="140.5" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="AKH-ua-Oau"/>
+                                    <constraint firstAttribute="width" constant="200" id="kMY-nv-JhN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MN2-x1-X5e">
+                                <rect key="frame" x="315" y="145" width="44" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="OK"/>
+                                <connections>
+                                    <action selector="okPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="FP3-b0-gVc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfO-47-aRn">
+                                <rect key="frame" x="107" y="202.5" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="KzA-Zv-Emb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IOA-is-dfJ">
+                                <rect key="frame" x="107" y="301" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="G5B-gd-hTc"/>
+                                    <constraint firstAttribute="height" constant="40" id="KJP-mc-kop"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9IC-fK-Aip">
+                                <rect key="frame" x="314" y="305.5" width="44" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="OK"/>
+                                <connections>
+                                    <action selector="authCodeOkPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gsG-OV-wAv"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mzQ-78-1I2">
+                                <rect key="frame" x="50" y="391" width="314" height="421"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provide your code we texted you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHX-MH-OdT">
+                                <rect key="frame" x="83" y="264" width="248" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XHs-2V-q5T"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XHs-2V-q5T" firstAttribute="bottom" secondItem="mzQ-78-1I2" secondAttribute="bottom" constant="50" id="36z-Xx-eIY"/>
+                            <constraint firstItem="IOA-is-dfJ" firstAttribute="top" secondItem="tHX-MH-OdT" secondAttribute="bottom" constant="16" id="3sP-WH-vhy"/>
+                            <constraint firstItem="rEX-JU-VpU" firstAttribute="centerX" secondItem="XHs-2V-q5T" secondAttribute="centerX" id="9vS-0G-DYJ"/>
+                            <constraint firstItem="mzQ-78-1I2" firstAttribute="leading" secondItem="XHs-2V-q5T" secondAttribute="leading" constant="50" id="D0O-5S-6zr"/>
+                            <constraint firstItem="3Oo-jd-zdf" firstAttribute="centerX" secondItem="XHs-2V-q5T" secondAttribute="centerX" id="HDc-Sc-L9s"/>
+                            <constraint firstItem="KfO-47-aRn" firstAttribute="trailing" secondItem="rEX-JU-VpU" secondAttribute="trailing" id="KeV-tk-ufJ"/>
+                            <constraint firstItem="MN2-x1-X5e" firstAttribute="centerY" secondItem="rEX-JU-VpU" secondAttribute="centerY" id="NQj-ak-i8S"/>
+                            <constraint firstItem="IOA-is-dfJ" firstAttribute="centerX" secondItem="rEX-JU-VpU" secondAttribute="centerX" id="QHU-Iw-ZxC"/>
+                            <constraint firstItem="9IC-fK-Aip" firstAttribute="leading" secondItem="IOA-is-dfJ" secondAttribute="trailing" constant="7" id="SJP-vt-ElY"/>
+                            <constraint firstItem="tHX-MH-OdT" firstAttribute="centerX" secondItem="XHs-2V-q5T" secondAttribute="centerX" id="UFd-Ab-Wvm"/>
+                            <constraint firstItem="XHs-2V-q5T" firstAttribute="trailing" secondItem="mzQ-78-1I2" secondAttribute="trailing" constant="50" id="UcI-fu-1IW"/>
+                            <constraint firstItem="KfO-47-aRn" firstAttribute="top" secondItem="rEX-JU-VpU" secondAttribute="bottom" constant="22" id="WAx-2O-cps"/>
+                            <constraint firstItem="tHX-MH-OdT" firstAttribute="top" secondItem="KfO-47-aRn" secondAttribute="bottom" constant="31.5" id="cSg-Mg-QgT"/>
+                            <constraint firstItem="9IC-fK-Aip" firstAttribute="centerY" secondItem="IOA-is-dfJ" secondAttribute="centerY" id="k5j-Cn-OhK"/>
+                            <constraint firstItem="KfO-47-aRn" firstAttribute="leading" secondItem="rEX-JU-VpU" secondAttribute="leading" id="khR-by-C3X"/>
+                            <constraint firstItem="3Oo-jd-zdf" firstAttribute="top" secondItem="yg2-gF-yhZ" secondAttribute="top" constant="100" id="pms-Zo-110"/>
+                            <constraint firstItem="mzQ-78-1I2" firstAttribute="top" secondItem="IOA-is-dfJ" secondAttribute="bottom" constant="50" id="qDm-xP-Xl4"/>
+                            <constraint firstItem="MN2-x1-X5e" firstAttribute="leading" secondItem="rEX-JU-VpU" secondAttribute="trailing" constant="8" symbolic="YES" id="tMJ-Eb-v3W"/>
+                            <constraint firstItem="rEX-JU-VpU" firstAttribute="top" secondItem="3Oo-jd-zdf" secondAttribute="bottom" constant="19.5" id="wOL-lg-m9a"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="authCodeLabel" destination="tHX-MH-OdT" id="DXD-sg-JdL"/>
+                        <outlet property="authCodeOkButton" destination="9IC-fK-Aip" id="B8y-CL-LBy"/>
+                        <outlet property="authCodeTextField" destination="IOA-is-dfJ" id="0ph-ar-dCj"/>
+                        <outlet property="errorTextView" destination="mzQ-78-1I2" id="ufG-oq-y7j"/>
+                        <outlet property="phoneNumberTextField" destination="rEX-JU-VpU" id="VlL-zM-76C"/>
+                        <outlet property="verifyLabel" destination="KfO-47-aRn" id="GGd-Vf-nGj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23" y="-3"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
