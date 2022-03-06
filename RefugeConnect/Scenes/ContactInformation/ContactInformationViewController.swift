@@ -12,10 +12,13 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import GeoFireUtils
 
 class ContactInformationViewController: UIViewController {
 	
 	// MARK: - Outlets
+	
+	@IBOutlet var hostNameTextField: UITextField!
 	@IBOutlet var landcodeTextField: UITextField!
 	@IBOutlet var phoneNumberTextField: UITextField!
 	@IBOutlet var verificationCodeLabel: UILabel!
@@ -79,7 +82,6 @@ class ContactInformationViewController: UIViewController {
 																				 hostUID: currentUser.uid)
 		
 		guard let shelter = createShelter,
-					//let hostName = shelter.hostName,
 					let adults = shelter.accommodatesAdults,
 					let startDate = shelter.startDate,
 					let endDate = shelter.endDate,
@@ -90,32 +92,34 @@ class ContactInformationViewController: UIViewController {
 					}
 		
 		var postShelter = Shelter(userID: currentUser.uid,
-													hostName: "Christian",
-													coarseLocation: GeoPoint(latitude: coarseLocation.latitude,
-																									 longitude: coarseLocation.longitude),
-													accommodatesAdults: adults,
-													accommodatesChildren: shelter.accommodatesChildren ?? 0,
-													accommodatesBabies: shelter.accommodatesBabies ?? 0,
-													startDate: startDate,
-													endDate: endDate,
-													maxDurationWeeks: maxDuration,
-													contactInfo: contactInfo)
+															hostName: hostNameTextField.text ?? "Just a host name",
+															coarseLocation: GeoPoint(latitude: coarseLocation.latitude,
+																											 longitude: coarseLocation.longitude),
+															geoHash: GFUtils.geoHash(forLocation: coarseLocation),
+															accommodatesAdults: adults,
+															
+															accommodatesChildren: shelter.accommodatesChildren ?? 0,
+															accommodatesBabies: shelter.accommodatesBabies ?? 0,
+															startDate: startDate,
+															endDate: endDate,
+															maxDurationWeeks: maxDuration,
+															contactInfo: contactInfo)
 		
 		server?.addShelther(postShelter) { id in
-			if let id = id {
-				print("Successfully created shelter")
-				postShelter.hostName = "Christian Updated"
-				self.server?.updateShelther(postShelter, with: id) { id in
-					if let id = id {
-						print("Successfully updated shelter")
-						self.server?.getShelter(with: id, completion: { shelter in
-							if let shelter = shelter {
-								print("Successfully got shelter: \(shelter.hostName)")
-							}
-						})
-					}
-				}
-			}
+//			if let id = id {
+//				print("Successfully created shelter")
+//				postShelter.hostName = "Christian Updated"
+//				self.server?.updateShelther(postShelter, with: id) { id in
+//					if let id = id {
+//						print("Successfully updated shelter")
+//						self.server?.getShelter(with: id, completion: { shelter in
+//							if let shelter = shelter {
+//								print("Successfully got shelter: \(shelter.hostName)")
+//							}
+//						})
+//					}
+//				}
+//			}
 		}
 	}
 	// MARK: - Misc

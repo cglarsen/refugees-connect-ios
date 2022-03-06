@@ -14,6 +14,7 @@ struct Shelter: Codable {
 	var userID: String
 	var hostName: String
 	var coarseLocation: GeoPoint
+	var geoHash: String
 	var	accommodatesAdults: Int
 	var	accommodatesChildren: Int
 	var	accommodatesBabies: Int

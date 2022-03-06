@@ -72,5 +72,24 @@ class ServerRepository {
 			 }
 		 }
 	}
-}
 	
+	public func getShelters(completion: @escaping (_ shelter:[Shelter]) -> Void) {
+		let collectionRef = db.collection(Constants.Collections.Shelters)
+		
+		collectionRef.getDocuments() { (querySnapshot, err) in
+			if let err = err {
+				print("Error getting documents: \(err)")
+				completion([])
+			} else {
+				if let documents = querySnapshot?.documents {
+					let shelters: [Shelter] = documents.compactMap { document in
+						return try? document.data(as: Shelter.self)
+					}
+					completion(shelters)
+				}
+				completion([])
+			}
+		}
+		
+	}
+}

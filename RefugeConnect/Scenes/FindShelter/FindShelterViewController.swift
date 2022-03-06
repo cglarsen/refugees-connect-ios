@@ -10,10 +10,33 @@
 //
 
 import UIKit
+import MapKit
+import GeoFireUtils
+
+class ShelterAnnotation: MKPointAnnotation {
+	var shelter: Shelter?
+}
 
 class FindShelterViewController: UIViewController {
 	
 	// MARK: - Outlets
+	@IBOutlet var mapView: MKMapView! {
+		didSet {
+			mapView.delegate = self
+		}
+	}
+	@IBOutlet var shelterSheet: UIView! {
+		didSet {
+			shelterSheet.layer.cornerRadius = 10
+			shelterSheet.layer.borderWidth = 1.5
+			shelterSheet.layer.borderColor = UIColor.blue.cgColor
+		}
+	}
+	@IBOutlet var shelterSheetAnimatableConstraint: NSLayoutConstraint!
+	@IBOutlet var hostNameLabel: UILabel!
+	@IBOutlet var adultLabel: UILabel!
+	@IBOutlet var childrenLabel: UILabel!
+	@IBOutlet var babiesLabel: UILabel!
 	
 	// MARK: - Properties
 	var server: ServerRepository!
@@ -30,9 +53,63 @@ class FindShelterViewController: UIViewController {
 	// MARK: - View lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		fetchShelters()
+	}
+	
+	// MARK: - Server interaction
+	private func fetchShelters() {
+//		let rect = mapView.visibleMapRect
+//		let neMapPoint = MKMapPoint(x: rect.maxX, y: rect.origin.y)
+//		let swMapPoint = MKMapPoint(x: rect.origin.x, y: rect.maxY)
+//
+//		let neCoordinate = neMapPoint.coordinate
+//		let swCoordinate = swMapPoint.coordinate
+//
+//		let cornerDistance = neMapPoint.distance(to: swMapPoint)
+//
+//		let qyeryBounds = GFUtils.queryBounds(forLocation: mapView.centerCoordinate, withRadius: cornerDistance)
+		
+		server.getShelters { shelters in
+			for shelter in shelters {
+				let shelterAnnotation = ShelterAnnotation()
+				shelterAnnotation.shelter = shelter
+				shelterAnnotation.coordinate = CLLocationCoordinate2D(latitude: shelter.coarseLocation.latitude, longitude: shelter.coarseLocation.longitude)
+				self.mapView.addAnnotation(shelterAnnotation)
+			}
+			self.mapView.fitAllAnnotations()
+		}
 	}
 	
 	// MARK: - Actions
 	
 	// MARK: - Misc
+}
+
+extension FindShelterViewController: MKMapViewDelegate {
+	func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+		self.view.layoutIfNeeded()
+		UIView.animate(withDuration: 0.15) {
+			self.shelterSheetAnimatableConstraint.constant = 80
+			self.view.layoutIfNeeded()
+		}
+	}
+	
+	func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+		if let annotation = view.annotation as? ShelterAnnotation,
+			 let shelter = annotation.shelter {
+			hostNameLabel.text = shelter.hostName
+			hostNameLabel.setNeedsLayout()
+			adultLabel.text = "\(shelter.accommodatesAdults)"
+			adultLabel.setNeedsLayout()
+			childrenLabel.text = "\(shelter.accommodatesChildren)"
+			childrenLabel.setNeedsLayout()
+			babiesLabel.text = "\(shelter.accommodatesBabies)"
+			babiesLabel.setNeedsLayout()
+		}
+		self.view.setNeedsLayout()
+		UIView.animate(withDuration: 0.15) {
+			self.shelterSheetAnimatableConstraint.constant = -40
+			self.view.layoutIfNeeded()
+		}
+	}
 }

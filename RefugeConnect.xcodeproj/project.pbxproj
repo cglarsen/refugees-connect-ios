@@ -23,6 +23,7 @@
 		335CE1B227D289BC00C6EAB4 /* ShelterContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335CE1B127D289BC00C6EAB4 /* ShelterContactInfo.swift */; };
 		335CE1B527D29B1200C6EAB4 /* ShelterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335CE1B427D29B1100C6EAB4 /* ShelterVM.swift */; };
 		335CE1B827D2A0FF00C6EAB4 /* GeoFireUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 335CE1B727D2A0FF00C6EAB4 /* GeoFireUtils */; };
+		335CE1BB27D54F8900C6EAB4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335CE1BA27D54F8900C6EAB4 /* Extensions.swift */; };
 		33DA0E4427D014EC002A49B6 /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33DA0E4327D014EC002A49B6 /* AuthViewController.storyboard */; };
 		33DA0E5127D01671002A49B6 /* WelcomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33DA0E4A27D01671002A49B6 /* WelcomeViewController.storyboard */; };
 		33DA0E5327D01671002A49B6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DA0E4C27D01671002A49B6 /* WelcomeViewController.swift */; };
@@ -51,6 +52,7 @@
 		335CE1AD27D2745A00C6EAB4 /* Shelter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shelter.swift; sourceTree = "<group>"; };
 		335CE1B127D289BC00C6EAB4 /* ShelterContactInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterContactInfo.swift; sourceTree = "<group>"; };
 		335CE1B427D29B1100C6EAB4 /* ShelterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterVM.swift; sourceTree = "<group>"; };
+		335CE1BA27D54F8900C6EAB4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		33DA0E4327D014EC002A49B6 /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
 		33DA0E4A27D01671002A49B6 /* WelcomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomeViewController.storyboard; sourceTree = "<group>"; };
 		33DA0E4C27D01671002A49B6 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		331DD91427CFCC79006BE101 /* RefugeConnect */ = {
 			isa = PBXGroup;
 			children = (
+				335CE1B927D54F6600C6EAB4 /* Misc */,
 				335CE1B327D29AEC00C6EAB4 /* ViewModels */,
 				335CE1AC27D2744A00C6EAB4 /* Models */,
 				335CE1A627D162F700C6EAB4 /* Repository */,
@@ -178,6 +181,14 @@
 				335CE1B427D29B1100C6EAB4 /* ShelterVM.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		335CE1B927D54F6600C6EAB4 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				335CE1BA27D54F8900C6EAB4 /* Extensions.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 		33DA0E4527D01645002A49B6 /* Scenes */ = {
@@ -329,6 +340,7 @@
 				33DA0E7727D026A0002A49B6 /* FindShelterViewController.swift in Sources */,
 				335CE1AB27D273BA00C6EAB4 /* ServerRepository.swift in Sources */,
 				335CE1A427D144A400C6EAB4 /* ContactInformationViewController.swift in Sources */,
+				335CE1BB27D54F8900C6EAB4 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
